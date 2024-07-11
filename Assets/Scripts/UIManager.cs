@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
 
     public void IncreaseScore()
     {
-        _scoreText.text = $"{++_scoreCount}";
+        _scoreCount += 1;
+        _scoreText.text = $"{_scoreCount}";
     }
     public void DisplayGameOverMessage()
     {

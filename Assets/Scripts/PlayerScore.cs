@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     private UIManager _uiManager;
+    private InputManager _inputManager;
     void Start()
     {
         _uiManager = FindObjectOfType<UIManager>();
@@ -24,6 +25,7 @@ public class PlayerScore : MonoBehaviour
                 case "Obstacle":
                     {
                         _uiManager.DisplayGameOverMessage();
+                        _inputManager.DisableInput();
                         break;
                     }
             }

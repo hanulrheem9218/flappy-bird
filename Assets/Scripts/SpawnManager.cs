@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    List<ObstacleHolder> obstacles;
+    List<ObstacleController> obstacles;
     [SerializeField]
     private Transform _startSpawnPosition;
     [SerializeField]
