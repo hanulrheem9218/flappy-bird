@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private int _scoreCount = 0;
+    private TextMeshProUGUI _scoreText;
+    private GameObject _displayDeath;
     void Start()
     {
-        
+        _scoreText = gameObject.transform.Find("ScoreDisplayer").GetComponent<TextMeshProUGUI>();
+        _displayDeath = gameObject.transform.Find("DeathScreen").gameObject;
+        _displayDeath.SetActive(false); 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncreaseScore()
     {
-        
+        _scoreText.text = $"{++_scoreCount}";
     }
+    public void DisplayGameOverMessage()
+    {
+        _displayDeath.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    
 }

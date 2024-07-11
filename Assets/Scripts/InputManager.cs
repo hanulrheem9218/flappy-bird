@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _playerRigidBody;
     [SerializeField]
-    private BoxCollider2D _playerCollider;
+    private CircleCollider2D _playerCollider;
     private bool _inputDisabled = false;
     #endregion
     void Start()
@@ -25,9 +25,9 @@ public class InputManager : MonoBehaviour
             this._playerRigidBody = gameObject.AddComponent<Rigidbody2D>();
             print($"{rigidBody} cannot be found, {_playerRigidBody.name} has been added.");
         }
-        if (!this.gameObject.TryGetComponent<BoxCollider2D>(out BoxCollider2D boxCollider))
+        if (!this.gameObject.TryGetComponent<CircleCollider2D>(out CircleCollider2D boxCollider))
         {
-            this._playerCollider = gameObject.AddComponent<BoxCollider2D>();
+            this._playerCollider = gameObject.AddComponent<CircleCollider2D>();
             print($"{boxCollider} cannot be found, {_playerCollider.name} has been added.");
         }
     }
