@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacles : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    List<ObstacleHolder> obstacles;
+    [SerializeField]
+    private Transform _startSpawnPosition;
+    [SerializeField]
+    private Transform _endSpawnPosition;
+  
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(collision != null)
+        {
+            switch(collision.gameObject.tag)
+            {
+                case "Obstacle":
+                    {
+                        Vector3 newPosition = new Vector3(_startSpawnPosition.position.x, -(Random.Range(2.5f, 4.9f)), _startSpawnPosition.position.z);
+                        collision.gameObject.transform.position = newPosition;
+                        print("Obstacle position has changed");
+                        break;
+                    }
+            }
+        }
     }
 }

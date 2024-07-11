@@ -1,5 +1,6 @@
 
 public interface IObstacles
 {
-    public void moveObstacle();
+    public void MoveObstacle();
+    public void InitiateRandomPosition();
 }
